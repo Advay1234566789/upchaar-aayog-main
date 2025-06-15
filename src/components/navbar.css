@@ -1,0 +1,153 @@
+/* Navbar Header */
+.navbar-header {
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    background-color: rgba(249, 250, 253, 0.9); /* Semi-transparent background */
+    backdrop-filter: saturate(180%) blur(12px); /* Gentle blur for a frosted glass effect */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08); /* Lighter shadow for modern touch */
+    animation: slideDown 0.05s ease-out; /* Faster slide down */
+    transition: all 0.05s ease; /* Faster transitions for interactivity */
+}
+
+/* Slide-down animation from top */
+@keyframes slideDown {
+    0% {
+        transform: translateY(-60px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Navbar Backside Frame */
+.navbar-backside-frame {
+    height: 70px;
+    background-color: transparent;
+}
+
+/* Navbar List */
+.navbar > ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Added gap for spacing */
+    margin: 0;
+    padding: 0;
+}
+
+/* Navbar Link */
+nav > ul > li > .navbar-link {
+    font-size: 18px;
+    padding: 10px 25px;
+    color: white;
+    background: linear-gradient(90deg, var(--action-color), var(--information-color)); /* Gradient background */
+    border-radius: 30px;
+    transition: all 0.03s ease; /* Even faster transition */
+    text-decoration: none;
+    display: inline-block;
+    position: relative;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+/* Hover effects for Navbar Link */
+nav > ul > li > .navbar-link:hover {
+    transform: scale(1.1); /* Slight zoom-in effect */
+    background: linear-gradient(90deg, var(--information-color), var(--action-color)); /* Reverse gradient on hover */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.25); /* More pronounced shadow */
+    color: #fff;
+}
+
+/* Login Button Animation */
+.navbar-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transition: width 0.03s ease; /* Faster animation */
+}
+
+.navbar-link:hover::before {
+    width: 100%; /* Creates a sliding effect on hover */
+}
+
+/* Title Styling */
+.title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--action-color);
+    letter-spacing: 1px;
+    transition: transform 0.03s ease, color 0.03s ease; /* Faster transitions */
+}
+
+/* Hover effect for Title */
+.title:hover {
+    color: var(--information-color); /* Color change */
+    transform: scale(1.05); /* Slight scale */
+}
+
+/* Responsive Design - Medium Screens */
+@media only screen and (max-width: 900px) {
+    .title {
+        font-size: 1.8rem;
+    }
+
+    .navbar-backside-frame {
+        height: 65px;
+    }
+
+    nav > ul {
+        gap: 15px;
+    }
+
+    nav > ul > li > .navbar-link {
+        padding: 8px 20px;
+    }
+}
+
+/* Responsive Design - Small Screens */
+@media only screen and (max-width: 500px) {
+    .navbar-backside-frame {
+        height: 60px;
+    }
+
+    .title {
+        font-size: 1.5rem;
+    }
+
+    nav > ul {
+        flex-direction: column;
+        margin-top: 10px;
+    }
+
+    nav > ul > li > .navbar-link {
+        font-size: 16px;
+        padding: 8px 18px;
+    }
+}
+
+/* Responsive Design for Very Small Screens (320px) */
+@media only screen and (max-width: 320px) {
+    .navbar-header {
+        padding: 10px 20px;
+    }
+
+    .title {
+        font-size: 1.3rem;
+    }
+
+    nav > ul > li > .navbar-link {
+        font-size: 14px;
+        padding: 6px 15px;
+    }
+}
